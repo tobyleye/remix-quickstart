@@ -1,0 +1,34 @@
+.admin {
+    display: flex;
+}
+
+.admin nav {
+    padding-right: 2rem;
+}
+
+.admin nav ul {
+    list-style: none;
+}
+
+.admin nav a {
+    position: relative;
+    display: inline-block;
+}
+
+.admin nav a.active::before {
+    content: "👉";
+    position: absolute;
+    left: -24px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.admin > main {
+    flex: 1;
+    border-left: solid 1px #ccc;
+    padding-left: 2rem;
+}
+
+em {
+    color: red;
+}
