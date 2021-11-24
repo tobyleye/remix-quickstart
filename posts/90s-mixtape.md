@@ -1,5 +1,5 @@
 ---
-title: 90s Mixtape
+title: it's so cold outside
 ---
 
 # 90s Mixtape
@@ -21,3 +21,5 @@ title: 90s Mixtape
 - Scar Tissue (Red Hot Chili Peppers)
 - Santa Monica (Everclear)
 - C'mon N' Ride it (Quad City DJ's)
+- bad man no dey work o
+- question but no answer

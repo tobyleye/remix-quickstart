@@ -14,6 +14,7 @@ export async function getPost(slug) {
   return {
     slug: slug,
     title: attributes.title,
+    markdown: file.toString(),
     html: converter.makeHtml(file.toString()),
   };
 }
@@ -39,4 +40,22 @@ export async function getPosts() {
       };
     })
   );
+}
+
+
+export function validatePost(post) {
+  let errors = {};
+  Object.entries(post).forEach(([key, value]) => {
+    if (!value) {
+      errors[key] = true;
+    }
+  });
+
+  return errors;
+}
+
+export async function updatePost(post) {
+  let postPath = path.join(postsPath, post.slug + '.md')
+  await fs.writeFile(postPath, post.markdown)
+  return getPost(post.slug)
 }

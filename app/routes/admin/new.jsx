@@ -1,5 +1,5 @@
 import { Form, redirect, useActionData, useTransition } from "remix";
-import { createPost } from "~/posts";
+import { createPost, validatePost } from "~/posts";
 
 export let action = async ({ request }) => {
     await new Promise(res => setTimeout(res, 3000));
@@ -10,14 +10,8 @@ export let action = async ({ request }) => {
     markdown: formdata.get("markdown"),
   };
 
-  let errors = {};
-  Object.entries(post).forEach(([key, value]) => {
-    if (!value) {
-      errors[key] = true;
-    }
-  });
-
-  if (Object.entries(errors).length) {
+  let errors = validatePost(post)
+  if (Object.keys(errors).length) {
     return errors;
   }
   await createPost(post);
